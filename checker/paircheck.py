@@ -28,7 +28,10 @@ class bybite():
 
     # Получаем прайс на пару
     def price(url):
-        price = requests.get(url).json()['result']['list'][0]['lastPrice']
+        try:
+            price = requests.get(url).json()['result']['list'][0]['lastPrice']
+        except:
+            price = 0
         return price
 
 class okx():
@@ -52,7 +55,10 @@ class okx():
 
     # Получаем прайс на пару
     def price(url):
-        price = requests.get(url).json()['data'][0]['idxPx']
+        try:
+            price = requests.get(url).json()['data'][0]['idxPx']
+        except:
+            price = 0
         return price
 
 class commex():
@@ -76,8 +82,11 @@ class commex():
 
     # Получаем прайс на пару
     def price(url):
-        price1 = float(requests.get(url).json()['price'])
-        price = str(round(price1, 2))
+        try:
+            price1 = float(requests.get(url).json()['price'])
+            price = str(round(price1, 2))
+        except:
+            price = 0
         return price
 
 class coinbase():
@@ -101,7 +110,10 @@ class coinbase():
 
     # Получаем прайс на пару
     def price(url):
-        price = requests.get(url).json()['price']
+        try:
+            price = requests.get(url).json()['price']
+        except:
+            price = 0
         return price
 
 class cryptocom():
@@ -125,7 +137,10 @@ class cryptocom():
 
     # Получаем прайс на пару
     def price(url):
-        price = requests.get(url).json()['result']['data'][0]['a']
+        try:
+            price = requests.get(url).json()['result']['data'][0]['a']
+        except:
+            price = 0
         return price
 
 class bitget():
@@ -149,7 +164,10 @@ class bitget():
 
     # Получаем прайс на пару
     def price(url):
-        price = requests.get(url).json()['data'][0]['lastPr']
+        try:
+            price = requests.get(url).json()['data'][0]['lastPr']
+        except:
+            price = 0
         return price
 
 class kucoin():
@@ -173,7 +191,10 @@ class kucoin():
 
     # Получаем прайс на пару
     def price(url):
-        price = requests.get(url).json()['data']['price']
+        try:
+            price = requests.get(url).json()['data']['price']
+        except:
+            price = 0
         return price
 
 class htx():
@@ -201,7 +222,10 @@ class htx():
 
     # Получаем прайс на пару
     def price(url):
-        price = requests.get(url).json()['tick']['close']
+        try:
+            price = requests.get(url).json()['tick']['close']
+        except:
+            price = 0
         return price
 
 class gateio():
@@ -225,7 +249,10 @@ class gateio():
 
     # Получаем прайс на пару
     def price(url):
-        price = requests.get(url).json()[0]['last']
+        try:
+            price = requests.get(url).json()[0]['last']
+        except:
+            price = 0
         return price
 
 class bingx():
@@ -249,7 +276,10 @@ class bingx():
 
     # Получаем прайс на пару
     def price(url):
-        price = requests.get(url).json()['data'][0]['lastPrice']
+        try:
+            price = requests.get(url).json()['data'][0]['lastPrice']
+        except:
+            price = 0
         return price
 
 class mexc():
@@ -273,7 +303,10 @@ class mexc():
 
     # Получаем прайс на пару
     def price(url):
-        price = requests.get(url).json()['price']
+        try:
+            price = requests.get(url).json()['price']
+        except:
+            price = 0
         return price
 
 class exmo():
@@ -297,7 +330,10 @@ class exmo():
 
     # Получаем прайс на пару
     def price(url, crypt1, crypt2):
-        price = requests.get(url).json()[f'{crypt1}_{crypt2}']['last_trade']
+        try:
+            price = requests.get(url).json()[f'{crypt1}_{crypt2}']['last_trade']
+        except:
+            price = 0
         return price
 
 class bitmart():
@@ -321,7 +357,10 @@ class bitmart():
 
     # Получаем прайс на пару
     def price(url):
-        price = requests.get(url).json()['data']['last']
+        try:
+            price = requests.get(url).json()['data']['last']
+        except:
+            price = 0
         return price
 
 class digifinex():
@@ -347,5 +386,8 @@ class digifinex():
 
     # Получаем прайс на пару
     def price(url):
-        price = requests.get(url).json()['ticker'][0]['sell']
+        try:
+            price = requests.get(url).json()['ticker'][0]['sell']
+        except:
+            price = 0
         return price

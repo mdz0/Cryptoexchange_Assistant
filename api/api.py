@@ -24,6 +24,7 @@ app.add_middleware(
 
 # Вид запроса ОБЯЗАТЕЛЬНО ЧЕРЕЗ -, например BTC-USDT
 # Данные с бирж о паре из заголовка, например http://localhost:5438/check/BTC-USDT
+# При отсутствии пары на конкретной бирже возвращает в 'price' 0
 @app.get("/check/{pair}", tags=["/check/{pair}"])
 async def read_root(pair: str,  request: Request):
     from checker.base import check_return
@@ -39,5 +40,5 @@ def read_root():
     from checker.paircheck import all_symb
 
     data = all_symb.all_symb()
-    
+
     return data
