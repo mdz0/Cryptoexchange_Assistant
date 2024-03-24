@@ -1,4 +1,4 @@
-from paircheck import *
+from checker.paircheck import *
 
 
 class check():
