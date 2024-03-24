@@ -1,5 +1,11 @@
 import requests
 
+class all_symb():
+    def all_symb():
+        infourl = 'https://api.bybit.com/v5/market/tickers?category=spot'
+        req = requests.get(infourl).json()
+        return req
+
 
 class bybite():
     # Название биржи
